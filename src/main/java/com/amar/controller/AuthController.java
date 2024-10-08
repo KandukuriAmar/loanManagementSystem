@@ -31,11 +31,16 @@ public class AuthController {
     private AuthDAO authdao;
     
     @Autowired
-	private AuthDAOImp authdaoimp;
+    private AuthDAOImp authdaoimp;
 
     
     @Autowired
     private LoanApproverCRUD loanerdao;
+
+    @GetMapping("/*")
+    public String redirectToIndex() {
+        return "forward:/index.jsp";
+    }
 
     @GetMapping("/")
     public ModelAndView home() {
